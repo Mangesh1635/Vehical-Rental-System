@@ -7,6 +7,10 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+  "dev": "nodemon app.js",
+  "build": "vercel build",
+  "deploy": "vercel deploy --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

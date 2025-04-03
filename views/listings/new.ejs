@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate")%>
+<body><br>
+    <h1>Create New Car</h1>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="listing[category]" class="form-lable">Category</label>
+            <select class="form-control" name="listing[category]">
+                <option value="" disabled selected>Select Category</option>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="scooty">Scooty</option>
+            </select required>
+            <!-- <input type="text"
+            name="listing[category]"
+            placeholder="Enter Car/Bike/Scooter"
+            class="form-control"
+            required> -->
+            <div class="invalid-feedback">Please Enter category</div>
+        </div><div class="mb-3">
+            <label for="lnewhotelisting[brand]" class="form-lable">Brand</label>
+            <input type="text"
+            name="listing[brand]"
+            placeholder="Enter Car Brand"
+            class="form-control"
+            required>
+            <div class="invalid-feedback">Please Enter Vehical Brand</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[model]" class="form-lable">Vehical Model</label>
+            <input type="text"
+            name="listing[model]"
+            placeholder="Enter Car Model"
+            class="form-control"
+            required>
+            <div class="invalid-feedback">Please Enter Vehical Model</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[noPlate]" class="form-lable">Vehical Number Plate</label>
+            <input type="text"
+            name="listing[noPlate]"
+            placeholder="Enter vehical Number Plate [eg.MH22AH5499]"
+            class="form-control"
+            required>
+            <div class="invalid-feedback">Please Enter Number Plate</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[description]" class="form-lable">Description</label>
+            <input 
+            type="text" 
+            name="listing[description]" 
+            placeholder="Enter Description"
+            class="form-control"
+            required>
+            <div class="invalid-feedback"> Please Enter Description</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[image_url]" class="form-lable">Uplode Image</label>
+            <input type="file" 
+            name="listing[image_url]" 
+            class="form-control">
+        </div>
+        
+            <div class="mb-3 col-md-4">
+                <label for="listing[rental_price]" class="form-lable">Rental Price</label>
+                <input type="text" 
+                name="listing[rental_price]" 
+                placeholder="Eg. 1000"
+                class="form-control"
+                required>
+                <div class="invalid-feedback"> Please Enter Rental Price</div>
+            </div>
+        
+        <div class="btn-div">
+            <button class="btn btn-dark add-btn">Add</button>
+        </div>
+        <br>
+    </form>
+</div>
+</div>
+</body>

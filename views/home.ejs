@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate")%>
+
+<div style=" width: 100%; height: 747px;">
+    <div style="width: 100%; height: 96%; background: #f4f4f4;">
+        <img 
+          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; mix-blend-mode: multiply;"
+          src="/image.png" 
+          alt="TripNiti Background"
+        >
+    </div>
+    <div  class="welcome" >
+      Welcome to Rental
+    </div>
+  </div>
+  
+  <div class="services">
+      <p>Services</p>
+      
+      <!-- Icons Row -->
+      <div class="icons-row">
+          <a class="train th" href="/listings/car"><i class="fa-solid fa-car"></i></a>
+          <a class="bus bh" href="/listings/bike"><i class="fa-solid fa-motorcycle"></i></a>
+          <a class="hotel hh" href="/listings/scooty"><i class="fa-solid fa-motorcycle"></i></a>
+      </div>
+      
+      <!-- Text Row -->
+      <div class="text-row">
+        <p class="th">Car</p>
+        <p class="bh">Bike</p>
+        <p class="hh">Scooty</p>
+      </div>
+  </div>
+
+  <div class="rent">
+    <% if(user && rentedVehicles.length > 0) { %>
+  <h2>Your Rented Vehicles</h2>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
+    <% rentedVehicles.forEach(list => { %>
+      <div class="card col listing-card">
+        <img src="<%= list.image_url.url %>" class="card-img-top">
+        <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+            <div class="card-text">
+                <h5><%= list.brand %> - <%= list.model %></h5>
+                <p><b>Status:</b> Rented</p>
+                <p><b>Rental Price:</b> &#8377;<%= list.rental_price %>/Day</p>
+            </div>
+          
+        </div>
+        <a href="/listings/<%= list._id %>" class="btn btn-dark edit-btn">View Details</a>
+      </div>
+    <% }) %>
+  </div>
+<% } %> 
+  </div>

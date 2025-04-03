@@ -1,0 +1,12 @@
+<% layout("/layouts/boilerplate")%>
+<div class="container text-center" >
+    <h2>Return Confirmation</h2>
+    <p>Vehicle: <%= rent.brand %> - <%= rent.model %></p>
+    
+    <p>Rented for <%= Math.floor(durationMinutes / 60) %> hours and <%= durationMinutes % 60 %> minutes</p>
+    <p>Total Cost: &#8377;<%= totalCost.toLocaleString("en-IN") %></p>
+    
+    <form method="post" action="/listings/<%= rent._id %>/confirm-return">
+        <button class="btn btn-dark">Pay Now</button>
+    </form>
+</div>

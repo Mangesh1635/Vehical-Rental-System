@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <h3>All Vehicles</h3>
+    <div class=" row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
+        <% for(let list of alllisting){ %>
+            <a class="listing-link" href="/listings/<%=list._id%>">
+                <div class="card col listing-card " >
+                    <img src="<%=list.image_url.url%>" class="card-img-top " alt="listing image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        <b><%=list.brand %>&nbsp;&nbsp;&nbsp;&nbsp;</b><b>  <%=list.model %></b>
+                        <br>
+                        &#8377;<%= list.rental_price.toLocaleString("en-IN") %>/Night
+                    </p>
+                    </div>
+                    <div class="btn-div">
+                        <button class="btn btn-dark update-btn">View Now</button>
+                    </div>
+                  </div>
+            </a>
+        <% } %>
+    </div>   
+</body>
+
+

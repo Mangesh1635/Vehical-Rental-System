@@ -1,0 +1,234 @@
+body{
+    font-family: "Plus Jakarta Sans", seri !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color:rgb(255, 255, 255);
+}
+
+.fa-car{
+    color: #fe424b;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: #222222;
+}
+
+.f-info{
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:space-evenly;
+    text-align: center;
+}
+
+.f-info-links, 
+.f-info-socials, .f-info-brand{
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    transition: transform .2s;
+}
+
+.f-info-socials i:hover{
+    color: #fe424b !important;
+    transform: scale(1.2);
+
+}
+
+.listing-card{
+    border: none !important; 
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+
+}
+
+.cart-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight: 400 !important;  
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+    
+}
+
+.card-img-overlay:hover{
+    opacity: 0.3 ;
+    background-color: #ffffff;
+
+}
+
+/* new listing */
+.add-btn{
+    background-color: #fe424b !important;
+    border: none !important;
+    transition: transform .2s;
+}
+
+.add-btn:hover{
+    transform: scale(1.1);
+    background-color: #fe424b !important;
+    color: #120c0c !important;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-btn{
+    background-color: #fe424b !important;
+    border: none !important;
+    transition: transform .2s;
+}
+.update-btn:hover{
+    transform: scale(1.1);
+    background-color: #fe424b !important;
+    color: #120c0c !important;
+}
+
+.udbtn{
+    display: flex;
+
+}
+
+/* show page */
+
+.show-img{
+    height: 40vh;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn{
+    background-color: #fe424b !important;
+    border: none !important;
+    transition: transform .2s;
+}
+.edit-btn:hover{
+    transform: scale(1.1);
+    background-color: #fe424b !important;
+    color: #120c0c !important;
+}
+
+.del-btn{
+    background-color: #fe424b !important;
+    border: none !important;
+    transition: transform .2s;
+}
+.del-btn:hover{
+    transform: scale(1.1);
+    background-color: #fe424b !important;
+    color: #120c0c !important;
+}
+
+/* home page */
+
+.welcome{
+    opacity: 1;
+    z-index: 10;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(55, 51, 51);
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(110, 109, 107, 0.7);
+}
+
+.services{
+    text-align: center;
+  margin-top: 50px;
+}
+
+.services p {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+  
+  /* Icons Row */
+  .icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Space between icons */
+  }
+  
+  .icons-row i {
+    font-size: 3rem;
+    color: #fe424b;
+    transition: transform .5s;
+  }
+
+  .icons-row i:hover {
+    transform: scale(1.3);
+  }
+  
+  /* Text Row */
+  .text-row {
+    display: flex;
+    justify-content: center;
+    gap: 90px; /* Align with icons */
+    margin-top: 20px;
+  }
+  
+  .text-row p {
+    font-size: 1.2rem;
+  }
+
+
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .icons-row,
+    .text-row {
+      gap: 40px; /* Reduce gap for smaller screens */
+    }
+  }

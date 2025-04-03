@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate")%>
+
+<div class="row mt-3">
+    <h1 class="col-7 offset-3 mb-3">Signup on Wanderlust</h1>
+    <div class="col-7 offset-3">
+        <form action="/signup" method="POST" novalidate class="needs-validation">
+
+            <div class="mb-3">
+                <label for="user[name]" class="form-lable">Name</label>
+                <input type="text"
+                name="user[name]"
+                id="name"
+                placeholder="Enter Your Name"
+                class="form-control"
+                required>
+                <div class="valid-feedback">Looks Good</div>
+                <div class="invalid-feedback">Please enter your Name </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="user[username]" class="form-lable">Username</label>
+                <input type="text"
+                name="user[username]"
+                id="username"
+                placeholder="Enter User Name"
+                class="form-control"
+                required>
+                <div class="valid-feedback">Looks Good</div>
+                <div class="invalid-feedback">Please enter username </div>
+            </div>
+            <div class="mb-3">
+                <label for="user[password]" class="form-lable">Password</label>
+                <input type="password"
+                name="user[password]"
+                id="password"
+                placeholder="Enter Password"
+                class="form-control"
+                required>
+                <div class="valid-feedback">Looks Good</div>
+                <div class="invalid-feedback">Please enter Password </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="user[email]" class="form-lable">Email</label>
+                <input type="email"
+                name="user[email]"
+                id="user[email]"
+                placeholder="Enter email"
+                class="form-control"
+                required>
+                <div class="invalid-feedback">Please Enter Email </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="user[dob]" class="form-lable">Date of Birth</label>
+                <input type="date"
+                name="user[dob]"
+                id="dob"
+                placeholder="Enter Date of Birth"
+                class="form-control"
+                required>
+                <div class="invalid-feedback">Please Enter Date of birth </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="user[licenseno]" class="form-lable">License Number</label>
+                <input type="text"
+                name="user[licenseno]"
+                id="license"
+                placeholder="Enter License Number"
+                class="form-control"
+                required>
+                <div class="invalid-feedback">Please Enter License No </div>
+            </div>
+            <div class="mb-3">
+                <label for="user[mobile]" class="form-lable">Mobile Number</label>
+                <input type="text"
+                name="user[mobile]"
+                id="license"
+                placeholder="Enter Mobile Number"
+                class="form-control"
+                required>
+                <div class="invalid-feedback">Please Enter Mobile No </div>
+            </div>
+
+            <button class="btn btn-dark add-btn offset-5 mb-3">Sign-Up</button>
+        </form>
+    </div>
+</div>

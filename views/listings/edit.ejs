@@ -1,0 +1,58 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <!-- <h4>Edit list</h4> -->
+    <div class="row">
+        <div class="col-8 offset-2">
+    <form method="post" action="/listings/<%=list._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="listing[brand]" class="form-lable">Vehical Brand</label>
+            <input type="text" 
+            name="listing[brand]" 
+            value="<%= list.brand %>"
+            class="form-control"
+            required>
+            <div class="invalid-feedback"> Please Enter Vehical Brand</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[model]" class="form-lable">Vehical Model</label>
+            <input type="text" 
+            name="listing[model]" 
+            value="<%= list.model %>"
+            class="form-control"
+            required>
+            <div class="invalid-feedback"> Please Enter Vehical Model</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[description]" class="form-lable">Description</label>
+            <textarea type="text" 
+            name="listing[description]"
+            class="form-control" required>
+            <%= list.description %>
+        </textarea>
+        <div class="invalid-feedback"> Please Enter Description</div>
+        </div>
+        <div class="mb-3">
+            <label for="listing[image_url]" class="form-lable">Uplode Image</label>
+            <input type="file" 
+            name="listing[image_url]" 
+            class="form-control"
+            >
+            <div class="invalid-feedback"> Please Enter Image url</div>
+        </div>
+            <div class="col-lg-4 mb-3">
+                <label for="listing[rental_price]" class="form-lable">Rental Price</label>
+                <input type="text"
+                 name="listing[rental_price]" 
+                 value="<%= list.rental_price %>"
+                 class="form-control"
+                 required>
+                 <div class="invalid-feedback"> Please Enter Rental Price</div>
+            </div>
+        <div class="btn-div">
+            <button class="btn btn-dark update-btn">Update</button>
+        </div>
+    <br>
+    </form>
+</div>
+</div>
+</body>

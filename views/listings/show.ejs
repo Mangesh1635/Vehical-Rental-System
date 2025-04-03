@@ -1,0 +1,47 @@
+<% layout("/layouts/boilerplate")%>
+<div class="row mt-3">
+
+   <div class="col-8 offset-2">
+    <h3><%= list.brand %></h3>
+   </div>
+
+    <div class="card listing-card col-md-6 col-8  offset-2">
+      <img src="<%=list.image_url.url%>" class="card-img-top show-img" alt="listing details">
+
+      <div class="card-body">
+        <p class="card-text">
+        <%= list.model %> <br>
+         <%= list.description %> <br>
+         <b>&#8377;<%= list.rental_price.toLocaleString("en-IN") %>/Day</b> <br>
+        </p>
+      </div>
+
+      <%if(user && user.role=="admin"){%>
+      <div class="btn-div">
+         <a href="/listings/<%= list._id %>/edit" 
+            class="btn btn-dark col-md-2  col-4 edit-btn ">
+            Edit</a>
+            <form method="post" action="/listings/<%= list._id %>?_method=DELETE" >
+               <button class="btn btn-dark offset-3 del-btn">Delete</button>
+            </form>
+      </div>
+      <%}%>
+
+      <%if(user && user.role=="user"){%>
+         <div class="btn-div">
+               <form method="post" action="/listings/<%= list._id %>/rent" >
+                  <button class="btn btn-dark edit-btn">
+                     <%= list.status === "Available" ? "Rent Now" : "Rented" %>
+                  </button>
+               </form>
+         </div>
+      <%}%>
+
+      <% if(user && list.status === "Rented" && list.rented_by.equals(user._id)) { %>
+         <form method="post" action="/listings/<%= list._id %>/return">
+           <button class="btn btn-dark edit-btn mt-3" style="width:100%">Return Vehicle</button>
+         </form>
+       <% } %>
+       
+    </div> 
+</div>

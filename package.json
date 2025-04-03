@@ -7,10 +7,9 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-  "dev": "nodemon app.js",
-  "deploy": "npx vercel deploy --prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scripts": {
+      "start": "node app.js",
+}
   },
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.3.1",

@@ -6,6 +6,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 // const bootstrap = require('bootstrap');
+const MongoStore = require('connect-mongo');
 
 require('dotenv').config();
 
@@ -44,6 +45,14 @@ app.use(express.static(path.join(__dirname,"public")));
 
 const MONGO_URL=process.env.ATLASDB_URL;
 
+const sessionStore = MongoStore.create({
+    mongoUrl: MONGO_URL,
+    crypto: {
+        secret: 'mySuperSecreateKey'
+    },
+    touchAfter: 24 * 3600 // update session only once in 24 hrs if unchanged
+});
+
 async function createAdminUser() {
     const existingAdmin = await User.findOne({ username: "Admin" });
     
@@ -75,6 +84,7 @@ main();
 
 
 const sessionOptions = {
+    store: sessionStore,
     secret : "mySuperSecreateKey",
     resave : false,
     saveUninitialized : true,
@@ -82,9 +92,11 @@ const sessionOptions = {
         expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge : 7 * 24 * 60 * 60 * 1000,
         httpOnly : true,
-    },
-    
+        secure: true, 
+        sameSite: "lax"
+    }
 }
+
 
 app.use(session(sessionOptions));
 app.use(flash());

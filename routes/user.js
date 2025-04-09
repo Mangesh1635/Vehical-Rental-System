@@ -65,24 +65,31 @@ router.get("/login",(req,res)=>{
     res.render("users/login.ejs");
 })
 
-router.post('/login',saveRedirectUrl, (req, res, next) => {
+router.post('/login', saveRedirectUrl, (req, res, next) => {
+    console.log("📥 Login request body:", req.body); // <-- DEBUG HERE
+
     passport.authenticate('local', (err, user, info) => {
         if (err) {
+            console.log("❌ Error during authentication:", err);
             return next(err);
         }
         if (!user) {
+            console.log("⚠️ No user found:", info);
             req.flash('error', 'Invalid username or password');
             return res.redirect('/login');
         }
         req.logIn(user, (err) => {
             if (err) {
+                console.log("❌ Error during login:", err);
                 return next(err);
             }
+            console.log("✅ Logged in as:", user.username);
             req.flash('success', 'You are now logged in');
             return res.redirect('/');
         });
     })(req, res, next);
 });
+
 
 //logout route
 router.get("/logout",(req,res,next)=>{

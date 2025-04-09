@@ -92,11 +92,12 @@ const sessionOptions = {
         expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge : 7 * 24 * 60 * 60 * 1000,
         httpOnly : true,
-        secure: true, 
+        secure: process.env.NODE_ENV === "production",
         sameSite: "lax"
     }
 }
 
+app.set("trust proxy", 1);
 
 app.use(session(sessionOptions));
 app.use(flash());

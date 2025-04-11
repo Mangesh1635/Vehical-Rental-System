@@ -50,7 +50,7 @@ router.post("/signup", wrapAsync(async (req, res, next) => {
         // Log in the user after successful registration
         req.logIn(registeredUser, (err) => {
             if (err) return next(err);
-            req.flash("success", "Welcome to Wanderlust!");
+            req.flash("success", "Welcome to Vehical Rentel!");
             res.redirect("/");
         });
 

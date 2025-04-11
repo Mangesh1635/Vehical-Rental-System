@@ -23,6 +23,10 @@ const listingSchema = new Schema({
     },noPlate : {
         type : String,
         required : true
+    },fule_type:{
+        type: String,  
+        enum: ["Petrol", "Diesel","EV"], 
+        default: "Petrol"
     },
     status: {  
         type: String,  

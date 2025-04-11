@@ -1,6 +1,14 @@
 <% layout("/layouts/boilerplate")%>
 <body>
-    <h3>All Vehicles</h3>
+    <%if(alllisting[0].category=="car"){%>
+        <h1 class="text-center">Cars</h1>
+    <%}%>
+    <%if(alllisting[0].category=="bike"){%>
+        <h1 class="text-center">Bikes</h1>
+    <%}%>
+    <%if(alllisting[0].category=="scooty"){%>
+        <h1 class="text-center">Scooters</h1>
+    <%}%>
     <div class=" row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
         <% for(let list of alllisting){ %>
             <a class="listing-link" href="/listings/<%=list._id%>">

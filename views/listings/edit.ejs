@@ -29,6 +29,16 @@
             class="form-control" required>
             <%= list.description %>
         </textarea>
+        <div class="mb-3">
+            <label for="listing[fule_type]" class="form-label">Fuel Type</label>
+            <select class="form-control" name="listing[fule_type]" required>
+                <option value="<%= list.fule_type %>" selected hidden><%= list.fule_type %></option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="EV">E.V.</option>
+            </select>
+        </div>
+        
         <div class="invalid-feedback"> Please Enter Description</div>
         </div>
         <div class="mb-3">

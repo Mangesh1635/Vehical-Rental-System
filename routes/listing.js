@@ -58,6 +58,7 @@ router.post("/",isLoggedin,upload.single("listing[image_url]"),wrapAsync(async(r
         newList.noPlate = req.body.listing.noPlate; 
         newList.image_url = {url,filename};
         console.log(newList);
+        console.log(newList.fule_type);
         await newList.save();
         req.flash("success","New Listing Created");
         res.redirect("/");
@@ -75,6 +76,7 @@ router.get("/:id",wrapAsync(async (req,res)=>{
 
      const user = req.user;
      console.log(user)
+     console.log(list);
     res.render("listings/show.ejs",{list,user});
     
 }));

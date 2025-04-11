@@ -7,6 +7,5 @@ const { model } = require('mongoose');
         model:Joi.string().required(),
         description : Joi.string().required(),
         rental_price : Joi.number().required().min(0),
-        image_url : Joi.string().allow("",null),
     }).required(),
  });

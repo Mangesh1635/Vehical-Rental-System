@@ -93,24 +93,58 @@ router.get("/:id/edit",isLoggedin,wrapAsync(async (req,res)=>{
 }));
 
 //Update route
-router.put("/:id",validateListing,upload.single("listing[image_url]"),isLoggedin,wrapAsync(async (req,res)=>{
-    if(!req.body.listing){
-        throw new ExpressError(400,"Send Valid Data for Listing")
-    }
-    const {id} = req.params;
-    const updatedList = req.body.listing;
-    let listing = await Listing.findByIdAndUpdate(id,updatedList);
+// router.put("/:id",validateListing,upload.single("image_url"),isLoggedin,wrapAsync(async (req,res)=>{
+//     console.log(req.body);
 
-    if(typeof req.file !== "undefined"){
-        let url = req.file.path;
-        let filename = req.file.filename;
-        listing.image_url = {url,filename};
+//     if(!req.body || Object.keys(req.body).length === 0){
+//     throw new ExpressError(400,"Send Valid Data for Listing");
+// }
+
+//     const {id} = req.params;
+//     const updatedList = req.body;
+//     let listing = await Listing.findByIdAndUpdate(id, updatedList, { new: true });
+
+
+    // if(typeof req.file !== "undefined"){
+    //     let url = req.file.path;
+    //     let filename = req.file.filename;
+    //     listing.image_url = {url,filename};
+    //     await listing.save();
+    // }
+
+    // req.flash("success","Listing Updated");
+    // res.redirect(`/listings/${id}`);
+// }));
+
+router.put(
+    "/:id",
+    
+    upload.single("image_url"),
+    isLoggedin,
+    wrapAsync(async (req, res) => {
+      console.log("Full body:", req.body);
+  
+      if (!req.body || Object.keys(req.body).length === 0) {
+        throw new ExpressError(400, "Send Valid Data for Listing");
+      }
+  
+      const { id } = req.params;
+      const updatedList = req.body;
+  
+      let listing = await Listing.findByIdAndUpdate(id, updatedList, { new: true });
+  
+      if (req.file) {
+        const url = req.file.path;
+        const filename = req.file.filename;
+        listing.image_url = { url, filename };
         await listing.save();
-    }
-
-    req.flash("success","Listing Updated");
-    res.redirect(`/listings/${id}`);
-}));
+      }
+  
+      req.flash("success", "Listing Updated");
+      res.redirect(`/listings/${id}`);
+    })
+  );
+  
 
 // delete route
 router.delete("/:id",isLoggedin,wrapAsync(async (req,res)=>{

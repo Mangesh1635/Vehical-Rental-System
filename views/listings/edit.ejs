@@ -5,33 +5,33 @@
         <div class="col-8 offset-2">
     <form method="post" action="/listings/<%=list._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="listing[brand]" class="form-lable">Vehical Brand</label>
+            <label for="brand" class="form-lable">Vehical Brand</label>
             <input type="text" 
-            name="listing[brand]" 
+            name="brand" 
             value="<%= list.brand %>"
             class="form-control"
             required>
             <div class="invalid-feedback"> Please Enter Vehical Brand</div>
         </div>
         <div class="mb-3">
-            <label for="listing[model]" class="form-lable">Vehical Model</label>
+            <label for="model" class="form-lable">Vehical Model</label>
             <input type="text" 
-            name="listing[model]" 
+            name="model" 
             value="<%= list.model %>"
             class="form-control"
             required>
             <div class="invalid-feedback"> Please Enter Vehical Model</div>
         </div>
         <div class="mb-3">
-            <label for="listing[description]" class="form-lable">Description</label>
+            <label for="description" class="form-lable">Description</label>
             <textarea type="text" 
-            name="listing[description]"
+            name="description"
             class="form-control" required>
             <%= list.description %>
         </textarea>
         <div class="mb-3">
-            <label for="listing[fule_type]" class="form-label">Fuel Type</label>
-            <select class="form-control" name="listing[fule_type]" required>
+            <label for="fule_type" class="form-label">Fuel Type</label>
+            <select class="form-control" name="fule_type" required>
                 <option value="<%= list.fule_type %>" selected hidden><%= list.fule_type %></option>
                 <option value="Petrol">Petrol</option>
                 <option value="Diesel">Diesel</option>
@@ -42,17 +42,17 @@
         <div class="invalid-feedback"> Please Enter Description</div>
         </div>
         <div class="mb-3">
-            <label for="listing[image_url]" class="form-lable">Uplode Image</label>
+            <label for="image_url" class="form-lable">Uplode Image</label>
             <input type="file" 
-            name="listing[image_url]" 
+            name="image_url" 
             class="form-control"
             >
-            <div class="invalid-feedback"> Please Enter Image url</div>
+            <div class="invalid-feedback"> Please Uplode Image</div>
         </div>
             <div class="col-lg-4 mb-3">
-                <label for="listing[rental_price]" class="form-lable">Rental Price</label>
+                <label for="rental_price" class="form-lable">Rental Price</label>
                 <input type="text"
-                 name="listing[rental_price]" 
+                 name="rental_price" 
                  value="<%= list.rental_price %>"
                  class="form-control"
                  required>

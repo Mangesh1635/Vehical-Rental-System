@@ -125,6 +125,31 @@ app.get("/", async (req, res) => {
     res.render("home.ejs", { listings, rentedVehicles, user: req.user });
 });
 
+app.get('/analysis', async (req, res) => {
+    if (!req.user || req.user.role !== 'admin') {
+        req.flash('error', 'Access denied!');
+        return res.redirect('/');
+    }
+
+    const totalVehicles = await Listing.countDocuments();
+    const rentedVehicles = await Listing.countDocuments({ rented_by: { $ne: null } });
+    const availableVehicles = totalVehicles - rentedVehicles;
+
+    const rentedVehicleDetails = await Listing.find({ rented_by: { $ne: null } }).populate('rented_by');
+
+
+    console.log(totalVehicles);
+    console.log(rentedVehicles)
+    console.log(availableVehicles);
+
+    res.render('analysis.ejs', {
+        totalVehicles,
+        rentedVehicles,
+        availableVehicles,
+        rentedVehicleDetails
+    });
+});
+
 
 app.use("/listings",listingRouter);
 app.use("/",userRouter);

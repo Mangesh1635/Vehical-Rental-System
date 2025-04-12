@@ -1,0 +1,72 @@
+<% layout("/layouts/boilerplate")%>
+
+<div class="container mt-5">
+    <h1>Admin Dashboard</h1>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Total Vehicles</h5>
+                    <p class="card-text fs-3"><%= totalVehicles %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Available Vehicles</h5>
+                    <p class="card-text fs-3"><%= availableVehicles %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Rented Vehicles</h5>
+                    <p class="card-text fs-3"><%= rentedVehicles %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+    <h2>Rented Vehicles</h2>
+    <% if (rentedVehicleDetails.length > 0) { %>
+        <table class="table table-striped mt-3">
+            <thead class="table">
+                <tr>
+                    <th>Vehicle Title</th>
+                    <th>Vehicle Number</th>
+                    <th>Rented By</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% rentedVehicleDetails.forEach(vehicle => { %>
+                    <tr>
+                        <td><%= vehicle.brand %><%= vehicle.model %></td>
+                        <td><%= vehicle.noPlate %></td>
+                        <td><%= vehicle.rented_by.username %> (<%= vehicle.rented_by.name %>)</td>
+                        <td><%= vehicle.rented_by.mobile %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No vehicles are currently rented.</p>
+    <% } %>
+</div>
+<style>
+    .table thead tr {
+        background-color: #ffcc99 !important; /* Slightly darker almond */
+        font-weight: bold;
+    }
+
+    .table tbody tr {
+        background-color: blanchedalmond !important;
+    }
+    
+</style>
